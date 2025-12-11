@@ -1,0 +1,2042 @@
+/* ========= Base ========= */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(-45deg, #e0e0e0, #a0d9ef, #4f9bd9);
+  background-size: 200% 200%;
+  animation: GradientBackground 10s ease infinite;
+  color: white;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+@keyframes GradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.App {
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+}
+
+/* 예전 subtitle은 안 쓰므로 숨김 */
+.subtitle {
+  display: none;
+}
+
+/* ========= 카드 / 레이아웃 ========= */
+
+.card {
+  background: #3b404e;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.image-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-container img {
+  border: 5px solid #fff;
+  border-radius: 10%;
+  max-width: 100%;
+  background: #f0f0f0;
+  margin-bottom: 20px;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ========= 폼 / 버튼 ========= */
+
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  font-family: monospace;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 10px;
+  resize: none;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.1s;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn.primary {
+  background-color: #61dafb;
+  color: #282c34;
+}
+
+.btn.success {
+  background-color: #4caf50;
+  color: white;
+  width: 100%;
+}
+
+.btn.secondary {
+  background-color: #ff9800;
+  color: white;
+}
+
+/* ========= 텍스트 / 레슨 영역 ========= */
+
+.lesson {
+  background: #222;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 20px 0;
+  text-align: left;
+}
+
+blockquote {
+  border-left: 4px solid #61dafb;
+  margin: 0;
+  padding-left: 15px;
+  font-style: italic;
+  color: #ddd;
+}
+
+/* 인라인 OCR 도움 링크 */
+.inline-help-link {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: #275efe;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.inline-help-link:hover {
+  opacity: 0.8;
+}
+
+/* ========= 상단 헤더 / 히어로 ========= */
+
+.app-hero {
+  padding: 16px 20px 14px;
+  border-radius: 20px;
+  margin-bottom: 18px;
+  background: linear-gradient(135deg, #f5f7ff, #eef3ff);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+  color: #111827; /* ⭐ 헤더 안 텍스트는 어두운 색 */
+}
+
+/* 타이틀 가운데 정렬 */
+.app-hero .top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* ← 가운데 정렬 */
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+/* 아이콘을 우측 상단에 띄우는 레이어 */
+.top-bar-floating-actions {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.top-bar-right {
+  display: flex;
+  gap: 6px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-mark {
+  font-size: 2rem;
+}
+
+.brand-name {
+  font-weight: 600;
+
+  font-size: 2rem;
+}
+
+.hero-copy {
+  margin-top: 4px;
+}
+
+.hero-kicker {
+  margin: 0 0 2px;
+  font-size: 0.78rem;
+  color: #6b7280;
+}
+
+.hero-subtitle {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+/* ========= 상단 작은 버튼들 ========= */
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.icon-button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.ranking-icon {
+  padding: 4px;
+}
+
+.help-icon {
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+/* ========= 힌트 뱃지 ========= */
+
+.hint-badge {
+  background-color: #ffd700;
+  color: #333;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  display: inline-block;
+  animation: popIn 0.5s ease;
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.small-hint {
+  font-size: 12px;
+  color: #666;
+  margin-left: 4px;
+}
+
+/* ========= 모달 공통 ========= */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal {
+  background: #ffffff;
+  color: #222222;
+  max-width: 480px;
+  width: 90%;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal h2,
+.modal p,
+.modal li,
+.modal ol {
+  color: #222222;
+}
+
+/* 필드 */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 8px 0 12px;
+}
+
+.field input {
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* 모달 하단 버튼 줄 */
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+/* ========= 도움말 리스트 ========= */
+
+.no-bullets {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.no-bullets li {
+  margin-bottom: 4px;
+}
+
+/* ========= 타자기 로딩 애니메이션 ========= */
+
+.typewriter {
+  --blue: #5c86ff;
+  --blue-dark: #275efe;
+  --key: #fff;
+  --paper: #eef0fd;
+  --text: #d3d4ec;
+  --tool: #fbc56c;
+  --duration: 3s;
+  position: relative;
+  animation: bounce05 var(--duration) linear infinite;
+}
+
+.typewriter .slide {
+  width: 92px;
+  height: 20px;
+  border-radius: 3px;
+  margin-left: 14px;
+  transform: translateX(14px);
+  background: linear-gradient(var(--blue), var(--blue-dark));
+  animation: slide05 var(--duration) ease infinite;
+}
+
+.typewriter .slide:before,
+.typewriter .slide:after,
+.typewriter .slide i:before {
+  content: "";
+  position: absolute;
+  background: var(--tool);
+}
+
+.typewriter .slide:before {
+  width: 2px;
+  height: 8px;
+  top: 6px;
+  left: 100%;
+}
+
+.typewriter .slide:after {
+  left: 94px;
+  top: 3px;
+  height: 14px;
+  width: 6px;
+  border-radius: 3px;
+}
+
+.typewriter .slide i {
+  display: block;
+  position: absolute;
+  right: 100%;
+  width: 6px;
+  height: 4px;
+  top: 4px;
+  background: var(--tool);
+}
+
+.typewriter .slide i:before {
+  right: 100%;
+  top: -2px;
+  width: 4px;
+  border-radius: 2px;
+  height: 14px;
+}
+
+.typewriter .paper {
+  position: absolute;
+  left: 24px;
+  top: -26px;
+  width: 40px;
+  height: 46px;
+  border-radius: 5px;
+  background: var(--paper);
+  transform: translateY(46px);
+  animation: paper05 var(--duration) linear infinite;
+}
+
+.typewriter .paper:before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  top: 7px;
+  border-radius: 2px;
+  height: 4px;
+  transform: scaleY(0.8);
+  background: var(--text);
+  box-shadow: 0 12px 0 var(--text), 0 24px 0 var(--text), 0 36px 0 var(--text);
+}
+
+.typewriter .keyboard {
+  width: 120px;
+  height: 56px;
+  margin-top: -10px;
+  z-index: 1;
+  position: relative;
+}
+
+.typewriter .keyboard:before,
+.typewriter .keyboard:after {
+  content: "";
+  position: absolute;
+}
+
+.typewriter .keyboard:before {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 7px;
+  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+  transform: perspective(10px) rotateX(2deg);
+  transform-origin: 50% 100%;
+}
+
+.typewriter .keyboard:after {
+  left: 2px;
+  top: 25px;
+  width: 11px;
+  height: 4px;
+  border-radius: 2px;
+  box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key),
+    60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key),
+    22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key),
+    60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+  animation: keyboard05 var(--duration) linear infinite;
+}
+
+@keyframes bounce05 {
+  85%,
+  92%,
+  100% {
+    transform: translateY(0);
+  }
+  89% {
+    transform: translateY(-4px);
+  }
+  95% {
+    transform: translateY(2px);
+  }
+}
+
+@keyframes slide05 {
+  5% {
+    transform: translateX(14px);
+  }
+  15%,
+  30% {
+    transform: translateX(6px);
+  }
+  40%,
+  55% {
+    transform: translateX(0);
+  }
+  65%,
+  70% {
+    transform: translateX(-4px);
+  }
+  80%,
+  89% {
+    transform: translateX(-12px);
+  }
+  100% {
+    transform: translateX(14px);
+  }
+}
+
+@keyframes paper05 {
+  5% {
+    transform: translateY(46px);
+  }
+  20%,
+  30% {
+    transform: translateY(34px);
+  }
+  40%,
+  55% {
+    transform: translateY(22px);
+  }
+  65%,
+  70% {
+    transform: translateY(10px);
+  }
+  80%,
+  85% {
+    transform: translateY(0);
+  }
+  92%,
+  100% {
+    transform: translateY(46px);
+  }
+}
+
+@keyframes keyboard05 {
+  5%,
+  12%,
+  21%,
+  30%,
+  39%,
+  48%,
+  57%,
+  66%,
+  75%,
+  84% {
+    box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key),
+      60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key),
+      22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key),
+      60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+  }
+  9% {
+    box-shadow: 15px 2px 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key),
+      60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key),
+      22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key),
+      60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+  }
+  18% {
+    box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key),
+      60px 2px 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key),
+      22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key),
+      60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+  }
+  27% {
+    box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key),
+      60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key),
+      22px 12px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key),
+      60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+  }
+  36% {
+    box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key),
+      60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key),
+      22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 12px 0 var(--key),
+      60px 12px 0 var(--key), 68px 12px 0 var(--key), 83px 10px 0 var(--key);
+  }
+  45% {
+    box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key),
+      60px 0 0 var(--key), 75px 0 0 var(--key), 90px 2px 0 var(--key),
+      22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key),
+      60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+  }
+  54% {
+    box-shadow: 15px 0 0 var(--key), 30px 2px 0 var(--key), 45px 0 0 var(--key),
+      60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key),
+      22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key),
+      60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+  }
+  63% {
+    box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key),
+      60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key),
+      22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key),
+      60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 12px 0 var(--key);
+  }
+  72% {
+    box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 2px 0 var(--key),
+      60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key),
+      22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key),
+      60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+  }
+  81% {
+    box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key),
+      60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key),
+      22px 10px 0 var(--key), 37px 12px 0 var(--key), 52px 10px 0 var(--key),
+      60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+  }
+}
+
+/* ========= 랭킹 모달 관련 (토스 느낌) ========= */
+
+.ranking-backdrop {
+  backdrop-filter: blur(8px);
+}
+
+.ranking-modal.fancy {
+  max-width: 480px;
+  width: calc(100% - 32px);
+  padding: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  animation: modal-pop 0.18s ease-out;
+}
+
+.ranking-header {
+  padding: 18px 20px 12px;
+  background: linear-gradient(135deg, #f5f7ff, #eef3ff);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.ranking-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.ranking-header h2 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.ranking-tag {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(39, 94, 254, 0.08);
+  color: #275efe;
+  font-weight: 600;
+}
+
+/* 내 세션 카드 */
+.ranking-my-session {
+  margin-top: 6px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.my-session-label {
+  font-size: 0.75rem;
+  color: #7b7f92;
+  margin-bottom: 4px;  
+}
+
+.my-session-main {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.my-session-user {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+}
+
+.my-session-name {
+  font-weight: 600;
+  color: #14151f;
+}
+
+.my-session-stats {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: #4a4f63;
+}
+
+.my-session-caption {
+  margin-top: 4px;
+  font-size: 0.75rem;
+  color: #9a9fb5;
+}
+
+/* pill 공통 */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.pill-me {
+  background: #275efe;
+  color: #fff;
+}
+
+.pill-me-small {
+  background: rgba(39, 94, 254, 0.1);
+  color: #275efe;
+  margin-left: 4px;
+}
+
+/* 랭킹 리스트 스크롤 */
+.ranking-scroll {
+  max-height: 320px;
+  padding: 8px 16px 4px;
+  overflow-y: auto;
+}
+
+.ranking-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.ranking-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.ranking-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 999px;
+}
+
+.ranking-list.fancy-list {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 8px;
+}
+
+.ranking-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 10px;
+  border-radius: 12px;
+  margin-bottom: 6px;
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(17, 24, 39, 0.02);
+  transition: transform 0.12s ease, box-shadow 0.12s ease,
+    background-color 0.12s ease;
+  animation: ranking-item-fade 0.22s ease forwards;
+  opacity: 0;
+}
+
+.ranking-item:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.06);
+}
+
+.ranking-item.me {
+  background: linear-gradient(135deg, #f2f6ff, #f7fbff);
+  box-shadow: 0 0 0 1px rgba(39, 94, 254, 0.12);
+}
+
+.ranking-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rank-badge {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  background: #f4f5fb;
+  color: #4b4f64;
+}
+
+.rank-badge.gold {
+  background: linear-gradient(135deg, #ffea9f, #ffd36f);
+  color: #6b4a00;
+}
+
+.rank-badge.silver {
+  background: linear-gradient(135deg, #e7edf5, #d8e0ee);
+  color: #424756;
+}
+
+.rank-badge.bronze {
+  background: linear-gradient(135deg, #f6d2ac, #f1b782);
+  color: #5b3b16;
+}
+
+.ranking-user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.name-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  font-size: 0.9rem;
+}
+
+.name-row .company {
+  color: #6b7280;
+}
+
+.name-row .name {
+  font-weight: 600;
+  color: #111827;
+}
+
+.name-row .employee {
+  color: #9ca3af;
+  font-size: 0.8rem;
+}
+
+.meta-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.meta-row .dot {
+  opacity: 0.6;
+}
+
+.ranking-actions {
+  padding: 10px 16px 14px;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.ranking-actions .btn.full {
+  width: 100%;
+}
+
+.error-text {
+  margin: 8px 0;
+}
+
+.empty-text {
+  margin: 12px 0;
+  text-align: center;
+}
+
+@keyframes modal-pop {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes ranking-item-fade {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========= START 카드 ========= */
+
+.start-card {
+  padding: 20px 20px 18px;
+  border-radius: 20px;
+
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.start-header {
+  padding: 14px 14px 12px;
+  margin: -4px -4px 12px;
+  border-radius: 16px;
+
+  background: linear-gradient(135deg, #f5f7ff, #eef3ff);
+}
+
+.start-header h3 {
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+  color: #4b5563;
+}
+
+.start-header p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+.start-header p strong {
+  color: #275efe;
+}
+
+.start-meta {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 🔥 이거 추가 */
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pill-text-bundle {
+  background: rgba(39, 94, 254, 0.08);
+  color: #275efe;
+}
+
+.start-meta-sub {
+  font-size: 0.8rem;
+
+  color: #6b7280;
+}
+
+.start-form {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.start-card .btn.full {
+  width: 100%;
+  margin-top: 14px;
+}
+
+.start-caption {
+  margin-top: 8px;
+  font-size: 0.78rem;
+  color: #9ca3af;
+}
+
+/* ========= OCR 설명 페이지 일부 ========= */
+
+.ocr-explainer h2 {
+  margin-top: 24px;
+  font-size: 1.1rem;
+}
+
+.ocr-label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 8px;
+  margin-bottom: 2px;
+  margin-left: 10px;
+  opacity: 0.8;
+}
+
+.link-like {
+  padding: 0;
+  border: none;
+  background: none;
+  color: #275efe;
+  cursor: pointer;
+  text-decoration: underline;
+  font: inherit;
+}
+
+/* OCR 페이지 전용 살짝 튜닝 */
+.ocr-page {
+  max-width: 720px; /* 설명 페이지는 살짝 넓게 */
+}
+
+/* OCR 카드 */
+.ocr-explainer-card {
+  text-align: left;
+  margin-top: 12px;
+  border-radius: 20px;
+  background: #ffffff;
+  color: #111827;
+}
+
+/* 기존 .ocr-explainer h2 스타일은 이미 있으니 그대로 두고,
+   step 헤더만 조금 다듬자 */
+.ocr-step {
+  margin-top: 18px;
+}
+
+/* STEP 하나 안에서, 이미지 아래에 오는 내용들 들여쓰기 */
+.ocr-step > p {
+  margin-left: 10px;
+}
+
+/* STEP 안에서 리스트는 한 칸 더 깊게, 15px 들여쓰기 */
+.ocr-step > ul {
+  margin-left: 30px;
+}
+
+
+.ocr-step-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.ocr-step-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(39, 94, 254, 0.08);
+  color: #275efe;
+}
+
+.ocr-explainer-card ul {
+  padding-left: 18px;
+  margin-left: 15px;
+}
+
+.ocr-intro {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+/* 요약 블록은 살짝 다른 느낌 */
+.ocr-summary {
+  padding-top: 8px;
+}
+
+/* 플로팅 + 한 글자씩 튕기는 인풋 라벨 */
+.form-control {
+  position: relative;
+  width: 100%;
+  margin: 10px 0 4px;
+}
+
+.form-control input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1.5px solid #e5e7eb;
+  display: block;
+  width: 100%;
+  padding: 14px 0 8px;
+  font-size: 15px;
+  color: #fff;
+}
+
+.form-control input:focus {
+  outline: none;
+}
+
+.form-control label {
+  position: absolute;
+  top: 14px;
+  left: 0;
+  pointer-events: none;
+}
+
+/* 개별 글자(span) 기본 상태 */
+.form-control label span {
+  display: inline-block;
+  font-size: 14px;
+  min-width: 5px;
+  color: #9ca3af;
+  transform: translateY(0);
+  transition: 0.28s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* 포커스 + 값 있음 → 위로 점프 + 색 변경 */
+.form-control input:focus + label span,
+.form-control input:not(:placeholder-shown) + label span {
+  color: #275efe;
+  transform: translateY(-18px);
+}
+
+/* 밑줄 색도 같이 강조 */
+.form-control input:focus,
+.form-control input:not(:placeholder-shown) {
+  border-bottom-color: #275efe;
+}
+
+/* === PLAYING 화면 카드 스타일 === */
+
+.play-card {
+  margin-top: 18px;
+  border-radius: 20px;
+  padding: 18px 18px 20px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  text-align: left;
+}
+
+/* 헤더 영역 */
+.play-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.play-header-main {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* pill 재활용 */
+.play-pill,
+.play-pill-sub {
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.play-pill {
+  background: rgba(39, 94, 254, 0.08);
+  color: #275efe;
+}
+
+.play-pill-sub {
+  background: #f3f4f6;
+  color: #4b5563;
+}
+
+.play-header-caption {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+/* 이미지 카드 영역 */
+.image-shell {
+  margin-top: 4px;
+  padding: 12px;
+  border-radius: 16px;
+  background: #f9fafb;
+}
+
+.image-shell .image-container {
+  margin-top: 8px;
+}
+
+.image-shell img {
+  border-radius: 12px;
+  border: none;
+  max-width: 100%;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+}
+
+/* 기존 hint-badge 색감만 톤 맞게 살짝 수정(원래 있던 정의 덮어쓰기) */
+.hint-badge {
+  background-color: #eef2ff;
+  color: #374151;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 입력 영역 */
+.playing-input {
+  margin-top: 16px;
+}
+
+.play-progress {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #ececec;
+  margin-bottom: 8px;
+}
+
+/* 플레이용 textarea */
+.play-textarea {
+  width: 100%;
+  min-height: 110px;
+
+  /* ⬇⬇ 여기가 핵심 ⬇⬇ */
+  box-sizing: border-box; /* padding까지 포함해서 width 100%로 계산 */
+  padding: 10px 8px 6px; /* 좌우 8px 정도 여유 */
+  /* ⬆⬆ 여기가 핵심 ⬆⬆ */
+
+  border: none;
+  border-bottom: 1.5px solid #e5e7eb;
+  resize: vertical;
+  font-size: 15px;
+  font-family: inherit;
+  color: #111827;
+}
+
+.play-textarea:focus {
+  outline: none;
+  border-bottom-color: #275efe;
+}
+
+/* 제출 버튼 풀폭 */
+.btn.success.full {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* 결과 카드 - 토스 톤앤매너 */
+.result-card {
+  padding: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  text-align: left;
+}
+
+/* 상단 헤더 영역 */
+.result-header {
+  padding: 16px 20px 12px;
+  background: linear-gradient(135deg, #f5f7ff, #eef3ff);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.result-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.result-header h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #111827;
+}
+
+.result-subtitle {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* 문제 번호 pill */
+.result-pill {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(39, 94, 254, 0.08);
+  color: #275efe;
+  font-weight: 600;
+}
+
+/* 스탯 영역 */
+.result-stats {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  gap: 8px;
+  padding: 14px 18px 4px;
+}
+
+@media (min-width: 480px) {
+  .result-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.result-stat {
+  padding: 8px 10px;
+  border-radius: 12px;
+  text-align: center; /* ✅ 텍스트 가운데 정렬 */
+  align-items: center; /* ✅ flex일 경우 내부 요소 가운데 정렬 */
+  background: #f9fafb;
+}
+
+.result-stat .label {
+  display: block;
+  font-size: 0.8rem;
+
+  color: #6b7280;
+  margin-bottom: 2px;
+}
+
+.result-stat strong {
+  font-size: 0.95rem;
+
+  color: #111827;
+}
+
+/* 레슨 영역 */
+.result-lesson {
+  padding: 8px 18px 10px;
+}
+
+.result-message {
+  margin: 4px 0 10px;
+  font-size: 0.9rem;
+  color: #ffffff;
+}
+
+/* 인라인 인용부 살짝 강조 */
+.result-quote {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 20px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.result-hint {
+  margin-top: 4px;
+  font-size: 0.78rem;
+  color: #9ca3af;
+}
+
+/* 버튼 영역 */
+.result-actions {
+  padding: 10px 18px 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.result-actions .btn.full {
+  width: 100%;
+}
+
+.tooltip-container {
+  --background: #111827; /* 말풍선 배경 (진한 남색) */
+  --color: #000000; /* 기본 텍스트/테두리 파란색 */
+  position: relative;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  font-size: 20px;
+  font-weight: 1000;
+  color: var(--color);
+  padding: 0.7em 1.8em;
+  border-radius: 8px;
+  text-transform: uppercase;
+  height: 60px;
+  width: 180px;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--color);
+  --secret-color-one: #ffbf48;
+  --secret-color-two: #be4a1d;
+  --secret-color-three: #ffbf4780;
+  --secret-color-four: #bf4a1d80;
+  overflow: visible; /* 내부에서만 빛 퍼지도록 */
+}
+
+/* 비밀 도구 버튼 전체 뒤에서 꿈틀거리는 에너지 덩어리 */
+.secret-bg::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 180%;
+  height: 260%;
+  border-radius: 999px;
+
+  background: radial-gradient(
+    circle at 30% 0%,
+    var(--secret-color-one),
+    transparent 55%
+  ),
+  radial-gradient(
+    circle at 80% 80%,
+    var(--secret-color-two),
+    transparent 55%
+  ),
+  radial-gradient(
+    circle at 20% 80%,
+    var(--secret-color-three),
+    transparent 55%
+  );
+
+  transform: translate(-50%, -50%) scale(1);
+  filter: blur(14px);
+  opacity: 0.75;
+
+  z-index: 0;
+  pointer-events: none;
+
+  /* loader에서 쓰던 colorize 느낌을 응용한 애니메이션 */
+  animation:
+    secret-pulse 6s ease-in-out infinite,
+    secret-colorize 6s linear infinite;
+}
+
+/* 텍스트/패널은 배경보다 위에 오게 */
+.tooltip-container .text,
+.tooltip-container span:last-child,
+.tooltip-container .tooltip {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* 전역 .text 대신, 이 버튼 안에서만 적용되게 */
+.tooltip-container .text {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  transform-origin: -100%;
+  transform: scale(1);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  color: var(--color); /* ✅ OCR 글자 파란색 */
+}
+
+
+/* 비밀 도구 텍스트 뒤에 자물쇠 아이콘 */
+.tooltip-container .text::before {
+  content: "🔑";
+  position: absolute;
+  font-size: 52px;      /* 크기 조절 */
+  opacity: 0.3;        /* 은은하게 */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none; /* 클릭 방해 X */
+}
+
+/* 슬라이드 패널 자체 */
+.tooltip-container span:last-child {
+  position: absolute;
+  top: 0%;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background-color: #ffffff; /* 흰색 배경 */
+  border: 0;
+  transform: scale(0);
+  transform-origin: 0;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  display: grid;
+  place-items: center;
+  color: #111827; /* 텍스트는 보이게 진한 색으로 */
+  position: absolute;
+  overflow: hidden; /* 아이콘 잘라내기용 */
+}
+
+/* 뒤에 살짝 비치는 🔓아이콘 */
+.tooltip-container span:last-child::before {
+  content: "🔎";
+  position: absolute;
+  font-size: 52px; /* 열쇠 크기 */
+  opacity: 0.5; /* 반투명 느낌 */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none; /* 클릭 방해 안 하게 */
+}
+
+.tooltip {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.3em 0.6em;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  background: var(--background);
+  z-index: 10;
+  border-radius: 8px;
+  scale: 0;
+  transform-origin: 0 0;
+  text-transform: none;
+  font-weight: 400;
+  font-size: 12px;
+  color: #f9fafb; /* ✅ 말풍선 글자 흰색 */
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+}
+
+.tooltip::before {
+  position: absolute;
+  content: "";
+  height: 0.6em;
+  width: 0.6em;
+  bottom: -0.2em;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  background: var(--background);
+}
+
+.tooltip-container:hover .tooltip {
+  top: -120%;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  scale: 1;
+  animation: shake 0.5s ease-in-out both;
+}
+
+.tooltip-container:hover {
+  box-shadow: rgba(0, 0, 0, 0.18) 0 6px 14px;
+  background-color: transparent; /* 애니메이션 배경 보여주기 */
+  color: #ffffff;
+  border-color: transparent;
+}
+
+
+/* 기존 hover에 추가 (또는 새로 작성) */
+.tooltip-container:hover .secret-bg::before {
+  opacity: 1;
+  filter: blur(10px);
+  animation-duration: 3s;          /* 더 빨라짐 */
+  transform: translate(-50%, -50%) scale(1.12);
+}
+
+
+.tooltip-container:hover span:last-child {
+  transform: scale(1);
+  left: 0;
+}
+
+.tooltip-container:hover .text {
+  opacity: 0;
+  top: 0%;
+  left: 100%;
+  transform: scale(0);
+}
+
+@keyframes shake {
+  0% {
+    rotate: 0;
+  }
+
+  25% {
+    rotate: 7deg;
+  }
+
+  50% {
+    rotate: -7deg;
+  }
+
+  75% {
+    rotate: 1deg;
+  }
+
+  100% {
+    rotate: 0;
+  }
+}
+
+.inline-help-link-word {
+  margin: 0 2px; /* 왼쪽·오른쪽 2px 정도 띄우기 */
+}
+
+/* 비밀 도구 단어용 이스터에그 버튼 */
+.secret-word-button {
+  --background: #37ff8b;
+  --color: #ffffff;
+  --text-stroke-color: rgba(0, 0, 0, 0.45);
+  --animation-color: #ffffff;
+  --fs-size: 0.95rem;
+
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  position: relative;
+  display: inline-block;
+  height: auto;
+  text-decoration: none;
+  text-transform: none;
+
+  font-size: var(--fs-size);
+  font-family: inherit;
+  letter-spacing: 0.02em;
+
+  color: transparent;
+  -webkit-text-stroke: 0.7px var(--text-stroke-color);
+}
+
+/* 기본으로 보이는 텍스트 */
+.secret-word-main {
+  position: relative;
+  z-index: 1;
+}
+
+/* 호버 시 덮어씌우는 네온 텍스트 */
+.secret-word-button .hover-text {
+  position: absolute;
+  inset: 0;
+  width: 0%;
+  height: 100%;
+  box-sizing: border-box;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--animation-color);
+
+  overflow: hidden;
+  transform-origin: left;
+  transform: scaleX(1);
+
+  transition: width 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  -webkit-text-stroke: 0.7px var(--animation-color);
+  white-space: nowrap;
+}
+
+/* 호버하면 왼쪽에서 오른쪽으로 채워지는 효과 */
+.secret-word-button:hover .hover-text {
+  width: 100%;
+  filter: drop-shadow(0 0 12px var(--animation-color));
+}
+
+/* 너무 튀는 박스/쉐도우는 제거해서 '단어 같은 느낌' 유지 */
+.secret-word-button:hover {
+  color: transparent;
+}
+
+/* ===== Help 모달 토스 톤앤매너 ===== */
+
+.modal.help-modal.fancy {
+  max-width: 480px;
+  width: calc(100% - 32px);
+  padding: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  animation: modal-pop 0.18s ease-out;
+}
+
+/* 상단 헤더 영역 */
+.help-header {
+  padding: 18px 20px 12px;
+  background: linear-gradient(135deg, #f5f7ff, #eef3ff);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.help-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.help-header h2 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.help-tag {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(39, 94, 254, 0.08);
+  color: #275efe;
+  font-weight: 600;
+}
+
+.help-subtitle {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #4b5563;
+}
+
+/* 본문 영역 */
+.help-body {
+  padding: 14px 18px 10px;
+}
+
+.help-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.help-step-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #1f2933;
+}
+
+.help-step-badge {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #e5edff;
+  color: #275efe;
+  margin-top: 2px;
+}
+
+.help-step-text strong {
+  font-weight: 600;
+  color: #111827;
+}
+
+.help-hint {
+  margin: 10px 0 8px;
+  font-size: 0.8rem;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+/* OCR 설명 페이지로 이동 링크 (토스식 텍스트 버튼) */
+.help-ocr-link {
+  margin-top: 6px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.86rem;
+  color: #275efe;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.help-ocr-link-arrow {
+  font-size: 0.9rem;
+  transition: transform 0.18s ease;
+}
+
+.help-ocr-link:hover .help-ocr-link-arrow {
+  transform: translateX(2px);
+}
+
+/* 하단 버튼 영역 */
+.help-footer {
+  padding: 10px 16px 14px;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.help-footer .btn.full {
+  width: 100%;
+}
+
+.start-sub-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.start-sub-button {
+  flex: 1;
+  font-size: 0.9rem;
+}
+/* 결과 스탯 카드 기본 – 가로로 나란히 */
+.result-stats {
+  display: flex;
+  gap: 8px; /* 카드 사이 간격 */
+}
+
+.result-stat {
+  flex: 1; /* 3개가 균등 너비로 */
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  text-align: center;
+}
+
+.result-stat .label {
+  display: block;
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin-bottom: 4px;
+}
+
+.result-stat strong {
+  font-size: 1.05rem;
+  color: #111827;
+}
+
+/* 🔵 잘했을 때 (good) - 연한 파란색 */
+.result-stat-good {
+  background: #e0f2ff;
+  border-color: #bfdbfe;
+}
+
+/* 🟢 괜찮을 때 (ok) - 연한 초록색 */
+.result-stat-ok {
+  background: #e3f9e5;
+  border-color: #bbf7d0;
+}
+
+/* 🔴 아쉬울 때 (bad) - 연한 붉은색 */
+.result-stat-bad {
+  background: #fee2e2;
+  border-color: #fecaca;
+}
+
+.play-number-input {
+  width: 100%;
+  padding: 10px 0 6px;
+  border: none;
+  border-bottom: 1.5px solid #e5e7eb;
+  font-size: 16px;
+  font-family: inherit;
+  outline: none;
+}
+
+.play-number-input:focus {
+  border-bottom-color: #2563eb;
+}
+
+@keyframes secret-pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.9);
+    filter: blur(16px);
+  }
+  40% {
+    transform: translate(-50%, -50%) scale(1.05);
+    filter: blur(10px);
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(1.15);
+    filter: blur(14px);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.9);
+    filter: blur(16px);
+  }
+}
+
+@keyframes secret-colorize {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  30% {
+    filter: hue-rotate(-30deg);
+  }
+  60% {
+    filter: hue-rotate(-70deg);
+  }
+  100% {
+    filter: hue-rotate(0deg);
+  }
+}
+
+
+.loader {
+  --color-one: #ffbf48;
+  --color-two: #be4a1d;
+  --color-three: #ffbf4780;
+  --color-four: #bf4a1d80;
+  --color-five: #ffbf4740;
+  --time-animation: 2s;
+  --size: 0.7; /* 버튼 안에 맞게 크기 축소 */
+
+  position: relative;
+  border-radius: 50%;
+  transform: scale(var(--size));
+  box-shadow:
+    0 0 25px 0 var(--color-three),
+    0 20px 50px 0 var(--color-four);
+  animation: colorize calc(var(--time-animation) * 3) ease-in-out infinite;
+}
+
+.loader::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border-top: solid 1px var(--color-one);
+  border-bottom: solid 1px var(--color-two);
+  background: linear-gradient(180deg, var(--color-five), var(--color-four));
+  box-shadow:
+    inset 0 10px 10px 0 var(--color-three),
+    inset 0 -10px 10px 0 var(--color-four);
+}
+
+.loader .box {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(
+    180deg,
+    var(--color-one) 30%,
+    var(--color-two) 70%
+  );
+  mask: url(#clipping);
+  -webkit-mask: url(#clipping);
+}
+
+.loader svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.loader svg #clipping {
+  filter: contrast(15);
+  animation: roundness calc(var(--time-animation) / 2) linear infinite;
+}
+
+.loader svg #clipping polygon {
+  filter: blur(7px);
+}
+
+.loader svg #clipping polygon:nth-child(1) {
+  transform-origin: 75% 25%;
+  transform: rotate(90deg);
+}
+
+.loader svg #clipping polygon:nth-child(2) {
+  transform-origin: 50% 50%;
+  animation: rotation var(--time-animation) linear infinite reverse;
+}
+
+.loader svg #clipping polygon:nth-child(3) {
+  transform-origin: 50% 60%;
+  animation: rotation var(--time-animation) linear infinite;
+  animation-delay: calc(var(--time-animation) / -3);
+}
+
+.loader svg #clipping polygon:nth-child(4) {
+  transform-origin: 40% 40%;
+  animation: rotation var(--time-animation) linear infinite reverse;
+}
+
+.loader svg #clipping polygon:nth-child(5) {
+  transform-origin: 40% 40%;
+  animation: rotation var(--time-animation) linear infinite reverse;
+  animation-delay: calc(var(--time-animation) / -2);
+}
+
+.loader svg #clipping polygon:nth-child(6) {
+  transform-origin: 60% 40%;
+  animation: rotation var(--time-animation) linear infinite;
+}
+
+.loader svg #clipping polygon:nth-child(7) {
+  transform-origin: 60% 40%;
+  animation: rotation var(--time-animation) linear infinite;
+  animation-delay: calc(var(--time-animation) / -1.5);
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes roundness {
+  0% {
+    filter: contrast(15);
+  }
+  20% {
+    filter: contrast(3);
+  }
+  40% {
+    filter: contrast(3);
+  }
+  60% {
+    filter: contrast(15);
+  }
+  100% {
+    filter: contrast(15);
+  }
+}
+
+/* 기존 secret-colorize 대신, loader의 colorize 재활용해도 됨 */
+@keyframes colorize {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  20% {
+    filter: hue-rotate(-30deg);
+  }
+  40% {
+    filter: hue-rotate(-60deg);
+  }
+  60% {
+    filter: hue-rotate(-90deg);
+  }
+  80% {
+    filter: hue-rotate(-45deg);
+  }
+  100% {
+    filter: hue-rotate(0deg);
+  }
+}
+
+ .secret-bg {
+   position: absolute;
+   inset: 0;  
+   border-radius: inherit;
+   overflow: hidden;      /* 버튼 안에서만 보이게 */
+   z-index: 0;
+   pointer-events: none;
+   display: grid;
+   place-items: center;
+ }
+
+ .help-visual {
+  margin-bottom: 12px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #00000010; /* 살짝 어두운 배경 */
+}
+
+.help-visual-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.ocr-step-visual {
+  margin-top: 8px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #00000010; /* 살짝 어두운 배경으로 감싸기 */
+}
+
+.ocr-step-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
