@@ -145,6 +145,13 @@ export default function OcrExplainer({ onBack }) {
               <h2>사후 처리 – 배심원단의 최종 검토</h2>
             </div> */}
 
+            <div className="ocr-step-visual">
+              <img
+                src={process.env.PUBLIC_URL + "/images/after.png"}
+                alt="OCR에서 후처리 단계: 문맥을 확인하는 예시"
+              />
+            </div>
+            
             <p className="ocr-label">⚖️ 비유</p>
             <p>
               탐정이 &quot;문맥상 이 사람이 맞나?&quot;를 확인하는 단계입니다.
