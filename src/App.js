@@ -1426,11 +1426,6 @@ export default function App() {
               <div className="play-header">
                 <div className="play-header-main">
                   <span className="pill play-pill">문제 {round} / 5</span>
-                  {round <= 3 && (
-                    <span className="pill play-pill-sub">
-                      {currentBundleLabel}
-                    </span>
-                  )}
                 </div>
               </div>
 
